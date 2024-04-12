@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: pgNosqlDemo
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.25.31:5432/postgres
+    username: postgres
+    password: wt_ocean
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 20
+      #   连接池名
+      pool-name: Hikari-pgSql-pool-1
+      #最小空闲连接数
+      minimum-idle: 5
+  jackson:
+    time-zone: GMT+8
+  jpa:
+    properties:
+      open-in-view: true
+      ddl-auto: create
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+        hbm2ddl:
+          auto: update
