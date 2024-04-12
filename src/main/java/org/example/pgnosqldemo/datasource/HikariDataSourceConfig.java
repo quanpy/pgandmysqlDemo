@@ -51,10 +51,10 @@ public class HikariDataSourceConfig {
         return primaryDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
 
-//    @Bean(secondDataSource)
-//    @ConfigurationProperties(prefix = "spring.datasource.secondary.hikari")
-//    public DataSource secondaryDataSource() {
-//        return secondaryDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
-//    }
+    @Bean(secondDataSource)
+    @ConfigurationProperties(prefix = "spring.datasource.secondary.hikari")
+    public DataSource secondaryDataSource() {
+        return secondaryDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
+    }
 
 }

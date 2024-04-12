@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @SpringBootTest
-class PgNosqlDemoApplicationTests {
+class PgNosqlApplicationTests {
 
     @Autowired
     private StudentRepository studentRepository;

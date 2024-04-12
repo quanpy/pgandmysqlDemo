@@ -16,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -23,19 +24,19 @@ import java.util.Map;
  * @date 2023/8/14 9:49
  * @description JPASecondaryConfig
  */
-//@Configuration
-//@EnableTransactionManagement
-//@EnableJpaRepositories(
-//        entityManagerFactoryRef = JPASecondaryConfig.entityManagerFactorySecondary,
-//        transactionManagerRef = JPASecondaryConfig.transactionManagerSecondary,
-//        basePackages = {JPASecondaryConfig.basePackages}    // 第一个数据源的 repository包 所在位置
-//)
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+        entityManagerFactoryRef = JPASecondaryConfig.entityManagerFactorySecondary,
+        transactionManagerRef = JPASecondaryConfig.transactionManagerSecondary,
+        basePackages = {JPASecondaryConfig.basePackages}    // 第一个数据源的 repository包 所在位置
+)
 public class JPASecondaryConfig {
 
     public static final String secondaryPersistenceUnit = "secondaryPersistenceUnit";
     public static final String transactionManagerSecondary = "transactionManagerSecondary";
-    protected static final String basePackages = "org.example.pgnosqldemo";
-    protected static final String entityPackages = "org.example.pgnosqldemo";
+    protected static final String basePackages = "org.example.pgnosqldemo.my";
+    protected static final String entityPackages = "org.example.pgnosqldemo.my";
     protected static final String entityManagerFactorySecondary = "entityManagerFactorySecondary";
 
     private static final String mysqlDialect = "org.hibernate.dialect.MySQLDialect";
@@ -56,11 +57,12 @@ public class JPASecondaryConfig {
 
     @Bean(name = entityManagerFactorySecondary)
     public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary (EntityManagerFactoryBuilder builder){
-        Map<String , Object> properties =
-                hibernateProperties.determineHibernateProperties(
-                        jpaProperties.getProperties(),
-                        new HibernateSettings()
-                );
+        Map<String, String> map = new HashMap<>();
+        // 设置对应的数据库方言
+        map.put("hibernate.dialect", mysqlDialect);
+        jpaProperties.setProperties(map);
+        Map<String, Object> properties = hibernateProperties.determineHibernateProperties(
+                jpaProperties.getProperties(), new HibernateSettings());
         return builder.dataSource(secondDataSource)
                 .properties(properties)
                 .packages(entityPackages)    // 第 1 个数据源的 domain实体类包 所在位置
