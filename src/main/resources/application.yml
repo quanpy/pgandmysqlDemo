@@ -40,13 +40,9 @@ spring:
     time-zone: GMT+8
   jpa:
     open-in-view: true
+    show_sql: true
     properties:
-      ddl-auto: create
       hibernate:
-        show_sql: true
+        ddl-auto: update
         format_sql: true
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
-        temp:
-          use_jdbc_metadata_defaults: false
-        hbm2ddl:
-          auto: update
