@@ -1,4 +1,4 @@
-package org.example.pgnosqldemo;
+package org.example.pgnosqldemo.pg;
 
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;

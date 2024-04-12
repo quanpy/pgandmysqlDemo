@@ -1,4 +1,4 @@
-package org.example.pgnosqldemo;
+package org.example.pgnosqldemo.pg;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
