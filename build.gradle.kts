@@ -28,9 +28,8 @@ dependencies {
 //    implementation("jakarta.transaction:jakarta.transaction-api:2.0.1")
 
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.1.4")
-    // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
-    implementation("org.hibernate.orm:hibernate-core:6.2.9.Final")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.0.13")
+    implementation("org.hibernate.orm:hibernate-core:6.1.7.Final")
 
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
