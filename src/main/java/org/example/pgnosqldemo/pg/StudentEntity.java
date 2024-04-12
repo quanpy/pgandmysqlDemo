@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
 public class StudentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_generator")
-    @SequenceGenerator(name = "student_id_generator", sequenceName = "student_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "", allocationSize = 1)
     private Long id;
 
     @Column(name = "creation_date")
