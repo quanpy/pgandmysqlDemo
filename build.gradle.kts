@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.2.4"
+    id("org.springframework.boot") version "3.1.4"
     id("io.spring.dependency-management") version "1.1.4"
 }
 
@@ -22,6 +22,12 @@ repositories {
 }
 
 dependencies {
+
+    implementation("org.springframework.boot:spring-boot-starter")
+// https://mvnrepository.com/artifact/jakarta.transaction/jakarta.transaction-api
+//    implementation("jakarta.transaction:jakarta.transaction-api:2.0.1")
+
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
