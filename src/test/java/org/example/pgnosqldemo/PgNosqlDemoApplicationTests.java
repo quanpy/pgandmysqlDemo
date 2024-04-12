@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @SpringBootTest
@@ -31,6 +34,14 @@ class PgNosqlDemoApplicationTests {
     void queryId() {
         StudentEntity studentEntity = studentRepository.findById(1L).get();
         System.out.println(studentEntity);
+        LocalDateTime creationDate = studentEntity.getCreationDate();
+        // 定义所需的日期时间格式
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // 使用格式器将 Date 转换为字符串
+        String format = creationDate.format(formatter);
+
+        System.out.println("Formatted creation date and time: " + format);
     }
 
     @Test
