@@ -3,7 +3,10 @@ package org.example.pgnosqldemo;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Ocean
@@ -21,8 +24,9 @@ public class StudentEntity {
     @SequenceGenerator(name = "student_id_generator", sequenceName = "student_id_seq", allocationSize = 1)
     private Long id;
 
-    @Column(name = "admit_year", length = 4)
-    private String admitYear;
+    @Column(name = "creation_date")
+    @CreationTimestamp
+    private LocalDateTime creationDate;
 
     @Type(JsonType.class)
     @Column(name = "address", columnDefinition = "jsonb")

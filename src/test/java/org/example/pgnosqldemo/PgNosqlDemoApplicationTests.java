@@ -23,7 +23,6 @@ class PgNosqlDemoApplicationTests {
         address.setPostCode("114200");
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setAddress(address);
-        studentEntity.setAdmitYear("2024");
         StudentEntity save = studentRepository.save(studentEntity);
         System.out.println(save.toString());
     }
