@@ -9,10 +9,8 @@ spring:
       password: wt_ocean
       hikari:
         connection-timeout: 30000
-        maximum-pool-size: 20
-        #   连接池名
+        maximum-pool-size: 10
         pool-name: Hikari-pgSql-pool-1
-        #最小空闲连接数
         minimum-idle: 5
     secondary:
       driver-class-name: com.mysql.cj.jdbc.Driver
