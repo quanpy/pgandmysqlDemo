@@ -33,10 +33,23 @@ class PgNosqlApplicationTests {
     }
 
     @Test
+    void saveupdate() {
+        Address address = new Address();
+
+        address.setCity("shen yang");
+        address.setPostCode("114202");
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setAddress(address);
+        studentEntity.setId(2L);
+        StudentEntity save = studentRepository.save(studentEntity);
+        System.out.println(save.toString());
+    }
+
+    @Test
     void queryId() {
         StudentEntity studentEntity = studentRepository.findById(1L).get();
         System.out.println(studentEntity);
-        LocalDateTime creationDate = studentEntity.getCreationDate();
+        LocalDateTime creationDate = studentEntity.getCreateTime();
         // 定义所需的日期时间格式
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 

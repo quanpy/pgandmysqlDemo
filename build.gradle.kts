@@ -35,7 +35,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     // https://mvnrepository.com/artifact/io.hypersistence/hypersistence-utils-hibernate-55
     // https://github.com/vladmihalcea/hypersistence-utils
-    implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.7.3")
+    implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.3")
     compileOnly("org.projectlombok:lombok")
 
     runtimeOnly("org.postgresql:postgresql")
