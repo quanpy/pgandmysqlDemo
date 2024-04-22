@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.2.4"
+    id("org.springframework.boot") version "3.0.13"
     id("io.spring.dependency-management") version "1.1.4"
 }
 
@@ -28,6 +28,10 @@ dependencies {
 //    implementation("jakarta.transaction:jakarta.transaction-api:2.0.1")
 
 
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // https://mvnrepository.com/artifact/org.springframework/spring-instrument
+//    implementation("org.springframework:spring-instrument:6.1.6")
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.0.13")
     implementation("org.hibernate.orm:hibernate-core:6.1.7.Final")
 
@@ -48,3 +52,11 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+//tasks.bootRun {
+//    jvmArgs("-javaagent:D:/workdir/spring-instrument-6.1.6.jar")
+//}
+
+//tasks.withType<JavaCompile> {
+//    options.compilerArgs.add("-javaagent:D:\\workdir\\spring-instrument-6.1.6.jar")
+//}
